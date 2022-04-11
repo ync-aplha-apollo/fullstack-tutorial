@@ -1,54 +1,34 @@
 import React, { Fragment } from 'react';
-import styled from "styled-components"
-import { Link } from '@reach/router';
+import styled from 'styled-components';
 
-const PageContainer:React.FC = ({children}) => {
-    return (
-        <Fragment>
-            page-container
-            <Bar colors='red'/>
-            <Container unit={2}>{children}</Container>
-        </Fragment>
-    )
-}        
+import { unit, colors } from '../styles/global';
 
-const menuItemClassName = styled.div`
-  flexGrow: 1,
-  width: 0,
-  fontFamily: 'inherit',
-  fontSize: 20,
-  color: 'inherit',
-  letterSpacing: 1.5,
-  textTransform: 'uppercase',
-  textAlign: 'center',
-  svg: {
-    display: 'block',
-    width: 60,
-    margin: 0 auto ${({unit}: {unit: number}) => unit ? unit : 2 } px,
-    fill: colors.secondary,
-  },
-`;
+export default function PageContainer (props: any) {
+  return (
+    <Fragment>
+      <Bar />
+      <Container>{props.children}</Container>
+    </Fragment>
+  );
+}
 
-const MenuItem = styled(Link)(menuItemClassName, {
-  textDecoration: 'none',
-});
+/**
+ * STYLED COMPONENTS USED IN THIS FILE ARE BELOW HERE
+ */
 
-const Bar = styled.div`
+const Bar = styled('div')({
   flexShrink: 0,
   height: 12,
-  backgroundColor: ${({colors}: {colors: string}) => colors ? colors : 'black' }.primary,
-`
+  backgroundColor: colors.primary,
+});
 
-const Container = styled.div`
+const Container = styled('div')({
   display: 'flex',
   flexDirection: 'column',
   flexGrow: 1,
   width: '100%',
   maxWidth: 600,
   margin: '0 auto',
-  padding: ${({unit}: {unit: number}) => unit ? unit : 1 } * 3,
+  padding: unit * 3,
   paddingBottom: unit * 5,
-`;
-
-export default PageContainer
-
+});

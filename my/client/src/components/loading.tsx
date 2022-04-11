@@ -1,7 +1,9 @@
 import styled, { keyframes} from 'styled-components';
 import { size } from 'polished';
 import { colors } from '../styles/global';
-const Logo  = require('../assets/logo.svg')('ReactComponent');
+//const Logo  = require('../assets/logo.svg')('ReactComponent');
+import { ReactComponent as Logo } from '../assets/logo.svg';
+
 
 const spin = keyframes`
   to {
@@ -15,7 +17,6 @@ const Loading = styled(Logo)(size(64), {
   fill: colors.grey,
   path: {
     transformOrigin: 'center',
-    animation: `${spin} 1s linear infinite`,
   },
 });
 
