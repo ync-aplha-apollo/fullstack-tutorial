@@ -42,7 +42,7 @@ export default LaunchTile;
  * STYLED COMPONENTS USED IN THIS FILE ARE BELOW HERE
  */
  export const cardClassName = styled.style`
- padding: ${unit * 4}px ${unit * 5}px,
+  padding: ${unit * 4}px ${unit * 5}px,
   borderRadius: 7,
   color: 'white',
   backgroundSize: 'cover',
@@ -54,6 +54,7 @@ const StyledLink = styled(Link)(cardClassName, {
   display: 'block',
   height: 193,
   marginTop: padding,
+  textAlign: 'center',
   textDecoration: 'none',
   ':not(:last-child)': {
     marginBottom: padding * 2,

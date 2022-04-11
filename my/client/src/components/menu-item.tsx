@@ -11,16 +11,16 @@ export const menuItemClassName = styled.style`
   letterSpacing: 1.5,
   textTransform: 'uppercase',
   textAlign: 'center',
-  svg: {
-    display: 'block',
-    width: 60,
-    margin: 0 auto ${unit}px,
-    fill: ${colors.secondary},
-  },
 `;
 
 const MenuItem = styled(Link)(menuItemClassName, {
   textDecoration: 'none',
+  svg: {
+    display: 'block',
+    width: 60,
+  },
+  margin: `0 auto ${unit}px`,
+  fill: `${colors.secondary}`,
 });
 
 export default MenuItem;
