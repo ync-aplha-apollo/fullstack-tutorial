@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from '@reach/router';
 import { colors, unit } from '../styles/global';
+import { lighten } from 'polished';
 
 export const menuItemClassName = styled.style`
   flexGrow: 1,
@@ -15,12 +16,21 @@ export const menuItemClassName = styled.style`
 
 const MenuItem = styled(Link)(menuItemClassName, {
   textDecoration: 'none',
+  textAlign: 'center',
+  cursor: 'pointer',
   svg: {
     display: 'block',
     width: 60,
   },
   margin: `0 auto ${unit}px`,
   fill: `${colors.secondary}`,
+  ':hover': {
+    fill: lighten(0.1, colors.accent),
+    color: lighten(0.1, colors.accent),
+  },
+  ':active': {
+    color: lighten(0.2, colors.accent),
+  },
 });
 
 export default MenuItem;

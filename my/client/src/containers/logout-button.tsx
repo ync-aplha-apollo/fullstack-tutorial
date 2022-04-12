@@ -5,6 +5,8 @@ import { useApolloClient } from '@apollo/client';
 import { menuItemClassName } from '../components/menu-item';
 import { isLoggedInVar } from '../cache';
 import { ReactComponent as ExitIcon } from '../assets/icons/exit.svg';
+import { colors, unit } from '../styles/global';
+import { lighten } from 'polished';
 
 const LogoutButton = () => {
   const client = useApolloClient();
@@ -46,4 +48,20 @@ const StyledButton = styled('button')(menuItemClassName, {
   background: 'none',
   border: 'none',
   padding: 0,
+  textAlign: 'center',
+  color: 'inherit',
+  cursor: 'pointer',
+  svg: {
+    display: 'block',
+    width: 60,
+  },
+  margin: `0 auto ${unit}px`,
+  fill: `${colors.secondary}`,
+  ':hover': {
+    fill: lighten(0.1, colors.accent),
+    color: lighten(0.1, colors.accent),
+  },
+  ':active': {
+    color: lighten(0.2, colors.accent),
+  },
 });
