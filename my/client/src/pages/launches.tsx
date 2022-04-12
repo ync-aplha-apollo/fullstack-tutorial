@@ -1,9 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 
-import { LaunchTile, Header, Button
-  //Loading 
-} from '../components';
+import { LaunchTile, Header, Button, Loading } from '../components';
 import { RouteComponentProps } from '@reach/router';
 import * as GetLaunchListTypes from './__generated__/GetLaunchList';
 
@@ -50,7 +48,7 @@ const Launches: React.FC<LaunchesProps> = () => {
   >(GET_LAUNCHES);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-  if (loading) return <>Loading</>;
+  if (loading) return <Loading />;
   if (error || !data) return <p>ERROR</p>;
 
   return (
@@ -63,7 +61,7 @@ const Launches: React.FC<LaunchesProps> = () => {
         ))}
       {data.launches && data.launches.hasMore && (
         isLoadingMore
-          ? <>Loading</>
+          ? <Loading />
           : <Button
               onClick={async () => {
                 setIsLoadingMore(true);
