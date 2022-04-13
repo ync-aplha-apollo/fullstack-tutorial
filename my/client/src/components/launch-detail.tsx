@@ -14,7 +14,7 @@ const LaunchDetail: React.FC<LaunchDetailProps> = ({ id, site, rocket }) => (
     }}
   >
     <h3>
-      {rocket && rocket.name} ({rocket && rocket.type})
+      {id}. {rocket && rocket.name} ({rocket && rocket.type})
     </h3>
     <h5>{site}</h5>
   </Card>
@@ -27,6 +27,7 @@ const LaunchDetail: React.FC<LaunchDetailProps> = ({ id, site, rocket }) => (
 const Card = styled('div')(cardClassName, {
   height: 365,
   marginBottom: unit * 4,
+  padding: 5,
 });
 
 export default LaunchDetail;
